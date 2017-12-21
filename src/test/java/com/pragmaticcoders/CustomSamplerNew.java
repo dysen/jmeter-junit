@@ -1,4 +1,4 @@
-package pragmaticcoders;
+package com.pragmaticcoders;
 
 import jodd.log.Logger;
 import jodd.log.LoggerFactory;
@@ -27,15 +27,18 @@ public class CustomSampler extends AbstractJavaSamplerClient implements Serializ
         String method = javaSamplerContext.getParameter(METHOD_TAG);
         String arg1 = javaSamplerContext.getParameter(ARG1_TAG);
         String arg2 = javaSamplerContext.getParameter(ARG2_TAG);
-        FunctionalityForSampling functionalityForSampling = new FunctionalityForSampling();
+       // FunctionalityForSampling functionalityForSampling = new FunctionalityForSampling();
+
         SampleResult sampleResult = new SampleResult();
         sampleResult.sampleStart();
         try {
-            String message = functionalityForSampling.testFunction(arg1,arg2);
+           // String message = functionalityForSampling.testFunction(arg1,arg2);
+            new TestClass().testSimple();
             sampleResult.sampleEnd();;
             sampleResult.setSuccessful(Boolean.TRUE);
             sampleResult.setResponseCodeOK();
-            sampleResult.setResponseMessage(message);
+//            sampleResult.setResponseMessage(message);
+            sampleResult.setResponseMessage("==========");
         } catch (Exception e) {
             LOGGER.error("Request was not successfully processed",e);
             sampleResult.sampleEnd();
